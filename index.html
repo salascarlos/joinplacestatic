@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trayecto · Consultoría en automatización de procesos</title>
+  <meta name="description" content="Mapeamos tu operación como un sistema de transporte y automatizamos las rutas que consumen tiempo. Demo de landing page.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Hanken+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #0d1014;
+      --ink-2: #161b22;
+      --ink-3: #222a34;
+      --line: #2e3845;
+      --text: #eef1f4;
+      --muted: #9aa6b4;
+      --red: #ff5b3a;
+      --blue: #3d7bff;
+      --mint: #22c79a;
+      --amber: #ffb43a;
+      --radius: 14px;
+      --display: "Archivo", "Helvetica Neue", sans-serif;
+      --body: "Hanken Grotesk", system-ui, sans-serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--amber); color: var(--ink); }
+
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+    img, svg { display: block; max-width: 100%; }
+
+    .wrap { width: min(1200px, 92vw); margin-inline: auto; }
+
+    h1, h2, h3 {
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.02;
+    }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      transition: transform 0.3s cubic-bezier(.2,.8,.2,1), background 0.3s, color 0.3s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:focus-visible, a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+      outline: 3px solid var(--amber);
+      outline-offset: 3px;
+    }
+    .btn-primary { background: var(--red); color: var(--ink); }
+    .btn-primary:hover { background: #ff7457; }
+    .btn-ghost { border-color: var(--line); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--text); }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(13, 16, 20, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 800;
+      font-size: 1.3rem;
+      text-decoration: none;
+    }
+    .logo-mark { width: 34px; height: 34px; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: 0.95rem; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { font-size: 0.95rem; padding: 0.6rem 1.1rem; }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.5rem 0.7rem;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative;
+      padding: clamp(4rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+      overflow: hidden;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 7.2vw, 6.2rem);
+      margin: 1.2rem 0 1.6rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--amber);
+    }
+    .hero p.lead {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 36ch;
+      margin-bottom: 2.2rem;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 3rem;
+      padding-top: 1.6rem;
+      border-top: 1px solid var(--line);
+    }
+    .hero-meta div { display: flex; flex-direction: column; gap: 0.2rem; }
+    .hero-meta strong { font-family: var(--display); font-stretch: 85%; font-size: 1.8rem; font-weight: 800; }
+    .hero-meta span { color: var(--muted); font-size: 0.9rem; }
+
+    .map-card {
+      background: var(--ink-2);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.4rem;
+      position: relative;
+    }
+    .map-card .map-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .map-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--mint);
+    }
+    .map-status::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 0 4px rgba(34, 199, 154, 0.2);
+    }
+    .map-svg { width: 100%; height: auto; }
+    .route {
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .route-flow {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 3;
+      stroke-linecap: round;
+      stroke-dasharray: 6 26;
+      opacity: 0.85;
+      animation: flow 2.4s linear infinite;
+    }
+    @keyframes flow { to { stroke-dashoffset: -64; } }
+    .station circle { fill: var(--ink); stroke: var(--text); stroke-width: 3; }
+    .station text {
+      fill: var(--text);
+      font-family: var(--mono);
+      font-size: 13px;
+    }
+    .station .sub { fill: var(--muted); font-size: 11px; }
+    .map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.4rem;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .legend-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 0.45rem; vertical-align: -1px; }
+    .demo-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--amber);
+      color: var(--ink);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+    .section-head h2 { font-size: clamp(2.3rem, 4.8vw, 4rem); }
+    .section-head p { color: var(--muted); max-width: 48ch; justify-self: end; }
+
+    /* ---------- Services (lines) ---------- */
+    .lines { display: grid; gap: 0; border-top: 1px solid var(--line); }
+    .line-item {
+      display: grid;
+      grid-template-columns: 90px 1.1fr 1.4fr 160px;
+      gap: 2rem;
+      align-items: center;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--line);
+      transition: background .3s, padding .3s;
+    }
+    .line-item:hover { background: var(--ink-2); padding-inline: 1.2rem; }
+    .line-badge {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+    .line-item h3 { font-size: 1.9rem; }
+    .line-item p { color: var(--muted); font-size: 1rem; }
+    .line-item .stops {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* ---------- Process ---------- */
+    .process {
+      background: var(--ink-2);
+      border-block: 1px solid var(--line);
+    }
+    .stations {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      counter-reset: st;
+    }
+    .stations::before {
+      content: "";
+      position: absolute;
+      top: 27px;
+      left: 12%;
+      right: 12%;
+      height: 6px;
+      background: linear-gradient(90deg, var(--red), var(--amber), var(--mint), var(--blue));
+      border-radius: 6px;
+    }
+    .station-card { position: relative; padding-top: 4.2rem; }
+    .station-dot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--ink);
+      border: 5px solid var(--text);
+      display: grid;
+      place-items: center;
+      font-family: var(--mono);
+      font-size: 0.95rem;
+    }
+    .station-card h3 { font-size: 1.45rem; margin-bottom: 0.6rem; }
+    .station-card p { color: var(--muted); font-size: 0.97rem; }
+    .station-card .time {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--amber);
+    }
+
+    /* ---------- Cases ---------- */
+    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .case {
+      background: var(--ink-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: border-color .3s, transform .3s;
+    }
+    .case:hover { border-color: var(--muted); transform: translateY(-4px); }
+    .case-top { display: flex; justify-content: space-between; align-items: center; }
+    .case-sector { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
+    .case-metric {
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 800;
+      font-size: 4.2rem;
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .case-metric small { display: block; font-family: var(--body); font-stretch: 100%; font-size: 1rem; font-weight: 500; color: var(--muted); letter-spacing: 0; margin-top: 0.5rem; }
+    .case h3 { font-size: 1.35rem; }
+    .case p { color: var(--muted); font-size: 0.97rem; }
+    .case-bar { height: 8px; background: var(--ink-3); border-radius: 8px; overflow: hidden; }
+    .case-bar i { display: block; height: 100%; border-radius: 8px; width: 0; transition: width 1.4s cubic-bezier(.2,.8,.2,1); }
+    .case.in .case-bar i { width: var(--w); }
+    .case-note { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: auto; }
+
+    /* ---------- Testimonial ---------- */
+    .quote {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: clamp(2rem, 4vw, 3.5rem);
+      background: linear-gradient(135deg, var(--ink-2), var(--ink));
+    }
+    .quote-mark {
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 900;
+      font-size: 7rem;
+      line-height: 0.8;
+      color: var(--red);
+    }
+    .quote blockquote {
+      font-family: var(--display);
+      font-stretch: 90%;
+      font-weight: 600;
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+    .quote cite {
+      display: block;
+      margin-top: 1.6rem;
+      font-style: normal;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .quote cite strong { color: var(--text); }
+
+    /* ---------- Pricing ---------- */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; align-items: stretch; }
+    .plan {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      background: var(--ink-2);
+    }
+    .plan.featured { background: var(--text); color: var(--ink); border-color: var(--text); }
+    .plan.featured p, .plan.featured li { color: #3c4652; }
+    .plan h3 { font-size: 1.7rem; }
+    .plan .price {
+      font-family: var(--display);
+      font-stretch: 85%;
+      font-weight: 800;
+      font-size: 3.2rem;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .plan .price small { font-family: var(--body); font-size: 0.95rem; font-weight: 500; letter-spacing: 0; }
+    .plan p { color: var(--muted); font-size: 0.97rem; }
+    .plan ul { list-style: none; display: grid; gap: 0.7rem; color: var(--muted); font-size: 0.95rem; }
+    .plan li::before { content: "—"; color: var(--red); margin-right: 0.6rem; }
+    .plan .btn { justify-content: center; margin-top: auto; }
+    .plan.featured .btn-ghost { border-color: var(--ink); color: var(--ink); }
+    .plan.featured .btn-ghost:hover { background: var(--ink); color: var(--text); }
+    .plan-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--ink);
+      background: var(--amber);
+      align-self: flex-start;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    /* ---------- FAQ ---------- */
+    .faq-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; }
+    .faq-grid > div:first-child p { color: var(--muted); margin-top: 1.2rem; max-width: 34ch; }
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 1.4rem 0;
+    }
+    details:first-child { border-top: 1px solid var(--line); }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--display);
+      font-stretch: 90%;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      font-family: var(--mono);
+      font-size: 1.4rem;
+      color: var(--amber);
+      transition: transform .3s;
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--muted); margin-top: 0.9rem; max-width: 62ch; }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      background: var(--red);
+      color: var(--ink);
+      border-radius: 28px;
+      padding: clamp(2.5rem, 6vw, 5rem);
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact h2 { font-size: clamp(2.6rem, 5.5vw, 4.6rem); }
+    .contact p.lead { margin-top: 1.4rem; font-size: 1.1rem; max-width: 38ch; }
+    .contact .label { color: var(--ink); }
+    .contact-direct { margin-top: 2rem; display: grid; gap: 0.5rem; font-weight: 600; }
+    .contact-direct a { text-decoration: none; }
+    form { display: grid; gap: 1rem; }
+    .field { display: grid; gap: 0.4rem; }
+    .field label { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    input, select, textarea {
+      font: inherit;
+      color: var(--text);
+      background: var(--ink);
+      border: 1.5px solid var(--ink);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      width: 100%;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: var(--muted); }
+    .form-foot { font-size: 0.85rem; color: var(--ink); }
+    .form-ok { font-family: var(--mono); font-size: 0.9rem; color: var(--ink); min-height: 1.4em; }
+    .contact .btn { background: var(--ink); color: var(--text); justify-content: center; }
+    .contact .btn:hover { background: var(--ink-3); }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 3.5rem 0 2.5rem; border-top: 1px solid var(--line); margin-top: 4rem; }
+    .foot-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+    .foot-grid p, .foot-grid a { color: var(--muted); font-size: 0.95rem; text-decoration: none; display: block; margin-top: 0.5rem; }
+    .foot-grid a:hover { color: var(--text); }
+    .foot-grid h4 { font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--text); letter-spacing: 0.04em; text-transform: uppercase; }
+    .foot-bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ---------- Reveal ---------- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .9s cubic-bezier(.2,.8,.2,1), transform .9s cubic-bezier(.2,.8,.2,1);
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .map-card { max-width: 640px; }
+      .line-item { grid-template-columns: 70px 1fr; }
+      .line-item > p, .line-item .stops { grid-column: 2; }
+      .line-item .stops { text-align: left; }
+      .cases { grid-template-columns: 1fr 1fr; }
+      .plans { grid-template-columns: 1fr; max-width: 520px; }
+      .stations { grid-template-columns: 1fr 1fr; row-gap: 3rem; }
+      .stations::before { display: none; }
+      .faq-grid, .contact { grid-template-columns: 1fr; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      body { font-size: 16px; }
+      .nav-links, .nav-cta { display: none; }
+      .menu-toggle { display: inline-block; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--ink);
+        padding: 1.5rem 4vw;
+        border-bottom: 1px solid var(--line);
+        gap: 1.2rem;
+      }
+      .section-head { grid-template-columns: 1fr; gap: 1.2rem; }
+      .section-head p { justify-self: start; }
+      .hero-meta { gap: 1.2rem; flex-wrap: wrap; }
+      .line-item { grid-template-columns: 1fr; gap: 1rem; }
+      .line-item:hover { padding-inline: 0; }
+      .line-item .stops { text-align: left; }
+      .cases, .stations { grid-template-columns: 1fr; }
+      .quote { grid-template-columns: 1fr; gap: 1rem; }
+      .quote-mark { font-size: 4.5rem; }
+      .foot-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#inicio" class="logo" aria-label="Trayecto, inicio">
+      <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true">
+        <circle cx="8" cy="8" r="5" fill="#ff5b3a"/>
+        <circle cx="26" cy="26" r="5" fill="#3d7bff"/>
+        <path d="M8 13 V21 Q8 26 13 26 H21" fill="none" stroke="#eef1f4" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      Trayecto
+    </a>
+    <ul class="nav-links" id="menu">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#proceso">Proceso</a></li>
+      <li><a href="#resultados">Resultados</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+    <a href="#contacto" class="btn btn-primary nav-cta">Agendar diagnóstico</a>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" id="toggle">Menú</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <div class="hero" id="inicio">
+    <div class="wrap hero-grid">
+      <div class="reveal">
+        <h1>Tu operación, <em>en línea recta.</em></h1>
+        <p class="lead">Mapeo tus procesos como si fueran una red de transporte, identifico los tramos donde se pierde tiempo y los automatizo. Menos tareas manuales, menos errores y más horas para hacer crecer el negocio.</p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Solicitar diagnóstico gratuito →</a>
+          <a href="#proceso" class="btn btn-ghost">Ver cómo funciona</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong>+85</strong><span>procesos automatizados</span></div>
+          <div><strong>12 h</strong><span>ahorradas por semana, en promedio</span></div>
+          <div><strong>4 sem</strong><span>primera automatización en producción</span></div>
+        </div>
+      </div>
+
+      <div class="map-card reveal" aria-label="Mapa de ejemplo de un proceso de ventas automatizado">
+        <span class="demo-tag">DATOS DE EJEMPLO</span>
+        <div class="map-head">
+          <span class="label">Mapa · Ventas a facturación</span>
+          <span class="map-status">Operando</span>
+        </div>
+
+        <svg class="map-svg" viewBox="0 0 520 400" role="img" aria-labelledby="map-title">
+          <title id="map-title">Diagrama de un flujo de ventas con cinco estaciones conectadas</title>
+          <!-- Línea roja: captura -->
+          <path class="route" stroke="#ff5b3a" d="M60 80 H200 Q230 80 230 110 V170"/>
+          <path class="route-flow" d="M60 80 H200 Q230 80 230 110 V170"/>
+          <!-- Línea azul: calificación -->
+          <path class="route" stroke="#3d7bff" d="M230 170 V250 Q230 280 260 280 H340"/>
+          <path class="route-flow" d="M230 170 V250 Q230 280 260 280 H340"/>
+          <!-- Línea verde: cobro -->
+          <path class="route" stroke="#22c79a" d="M340 280 Q380 280 380 240 V190 Q380 150 420 150 H470"/>
+          <path class="route-flow" d="M340 280 Q380 280 380 240 V190 Q380 150 420 150 H470"/>
+          <!-- Línea ámbar: sincronización -->
+          <path class="route" stroke="#ffb43a" d="M230 170 Q230 130 280 130 H460"/>
+          <path class="route-flow" d="M230 170 Q230 130 280 130 H460"/>
+
+          <g class="station">
+            <circle cx="60" cy="80" r="14"/>
+            <text x="30" y="52">Captura</text>
+            <text class="sub" x="30" y="108">Formulario web</text>
+          </g>
+          <g class="station">
+            <circle cx="230" cy="170" r="14"/>
+            <text x="252" y="176">Calificación</text>
+            <text class="sub" x="252" y="192">Score automático</text>
+          </g>
+          <g class="station">
+            <circle cx="340" cy="280" r="14"/>
+            <text x="362" y="286">Propuesta</text>
+            <text class="sub" x="362" y="302">Plantilla + envío</text>
+          </g>
+          <g class="station">
+            <circle cx="420" cy="150" r="14"/>
+            <text x="300" y="112" text-anchor="start">CRM</text>
+          </g>
+          <g class="station">
+            <circle cx="470" cy="150" r="10" fill="#22c79a" stroke="#22c79a"/>
+            <text x="440" y="186">Factura</text>
+            <text class="sub" x="440" y="202">Emitida</text>
+          </g>
+        </svg>
+
+        <div class="map-legend">
+          <span><i class="legend-dot" style="background:#ff5b3a"></i>Captura</span>
+          <span><i class="legend-dot" style="background:#3d7bff"></i>Calificación</span>
+          <span><i class="legend-dot" style="background:#22c79a"></i>Cobro</span>
+          <span><i class="legend-dot" style="background:#ffb43a"></i>Sincronización</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <h2>Cuatro líneas,<br>un solo destino.</h2>
+        </div>
+        <p>Cada proyecto empieza con un mapa de tu operación y termina con procesos que funcionan solos. Elige la línea que necesitas o combínalas.</p>
+      </div>
+
+      <div class="lines">
+        <article class="line-item reveal">
+          <div class="line-badge" style="background:#ff5b3a">A</div>
+          <h3>Diagnóstico</h3>
+          <p>Documento el estado actual de tus procesos, mido cuánto tiempo y dinero se pierde en cada tramo y priorizo las mejoras con mayor retorno.</p>
+          <div class="stops">Duración: 1 semana<br>Entregable: mapa + plan</div>
+        </article>
+        <article class="line-item reveal">
+          <div class="line-badge" style="background:#3d7bff">B</div>
+          <h3>Automatización</h3>
+          <p>Construyo flujos que conectan tus herramientas y ejecutan tareas repetitivas: captura de datos, envíos, aprobaciones y conciliaciones.</p>
+          <div class="stops">Duración: 2 a 6 semanas<br>Entregable: flujos en producción</div>
+        </article>
+        <article class="line-item reveal">
+          <div class="line-badge" style="background:#22c79a">C</div>
+          <h3>Integraciones</h3>
+          <p>Conecto tu CRM, ERP, hojas de cálculo, correo y tienda en línea para que la información viaje sola y no se duplique.</p>
+          <div class="stops">Duración: variable<br>Entregable: sistemas sincronizados</div>
+        </article>
+        <article class="line-item reveal">
+          <div class="line-badge" style="background:#ffb43a">D</div>
+          <h3>Acompañamiento</h3>
+          <p>Monitoreo mensual, mejoras continuas y capacitación para tu equipo, para que las automatizaciones sigan funcionando y creciendo.</p>
+          <div class="stops">Duración: mensual<br>Entregable: reporte y mejoras</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process" id="proceso">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <h2>De la idea<br>a la operación.</h2>
+        </div>
+        <p>Cuatro estaciones, sin sorpresas. Sabes en qué punto está tu proyecto en todo momento y cuánto tiempo falta para llegar.</p>
+      </div>
+
+      <div class="stations">
+        <div class="station-card reveal">
+          <div class="station-dot">01</div>
+          <h3>Mapeo</h3>
+          <p>Entrevisto a tu equipo y dibujo cada proceso paso a paso, incluyendo los atajos que nadie documentó.</p>
+          <span class="time">Semana 1</span>
+        </div>
+        <div class="station-card reveal">
+          <div class="station-dot">02</div>
+          <h3>Diseño</h3>
+          <p>Propongo la ruta óptima: qué automatizar, con qué herramientas y qué debe seguir siendo humano.</p>
+          <span class="time">Semana 2</span>
+        </div>
+        <div class="station-card reveal">
+          <div class="station-dot">03</div>
+          <h3>Construcción</h3>
+          <p>Desarrollo los flujos en un entorno de pruebas y los valido con datos reales junto a tu equipo.</p>
+          <span class="time">Semanas 3 a 5</span>
+        </div>
+        <div class="station-card reveal">
+          <div class="station-dot">04</div>
+          <h3>Operación</h3>
+          <p>Lanzo en producción, mido resultados y entrego documentación, accesos y un plan de mejora continua.</p>
+          <span class="time">Semana 6 en adelante</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS -->
+  <section id="resultados">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <h2>Lo que cambia<br>cuando el flujo fluye.</h2>
+        </div>
+        <p>Casos ficticios con métricas de ejemplo para ilustrar el tipo de resultados que puedes esperar. Reemplázalos con tus casos reales.</p>
+      </div>
+
+      <div class="cases">
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-sector">Distribuidora · 40 empleados</span>
+            <span class="label">Caso 01</span>
+          </div>
+          <div class="case-metric">-68%<small>tiempo de captura de pedidos</small></div>
+          <h3>Pedidos que se procesan solos</h3>
+          <p>Los pedidos por WhatsApp y correo pasaron a una hoja centralizada con validación automática y aviso al almacén.</p>
+          <div class="case-bar"><i style="--w:68%; background:var(--red)"></i></div>
+          <span class="case-note">Datos de ejemplo</span>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-sector">Clínica dental · 12 empleados</span>
+            <span class="label">Caso 02</span>
+          </div>
+          <div class="case-metric">-42%<small>citas perdidas o duplicadas</small></div>
+          <h3>Recordatorios que sí llegan</h3>
+          <p>Automaticé confirmaciones, reprogramaciones y seguimiento post consulta conectados con el calendario de la clínica.</p>
+          <div class="case-bar"><i style="--w:42%; background:var(--blue)"></i></div>
+          <span class="case-note">Datos de ejemplo</span>
+        </article>
+
+        <article class="case reveal">
+          <div class="case-top">
+            <span class="case-sector">Agencia digital · 8 empleados</span>
+            <span class="label">Caso 03</span>
+          </div>
+          <div class="case-metric">+9 h<small>ahorradas por semana, por persona</small></div>
+          <h3>Reportes sin hojas manuales</h3>
+          <p>Los informes de clientes se generan y envían cada lunes con datos de cinco plataformas, sin copiar y pegar.</p>
+          <div class="case-bar"><i style="--w:75%; background:var(--mint)"></i></div>
+          <span class="case-note">Datos de ejemplo</span>
+        </article>
+      </div>
+
+      <div class="quote reveal" style="margin-top:3.5rem">
+        <div class="quote-mark" aria-hidden="true">“</div>
+        <div>
+          <blockquote>Antes revisábamos cada pedido a mano. Hoy el equipo atiende clientes y el sistema hace el resto.</blockquote>
+          <cite><strong>Laura Gómez</strong>, Directora de operaciones · Distribuidora Ejemplo</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <h2>Empieza pequeño.<br>Escala con datos.</h2>
+        </div>
+        <p>Precios de ejemplo en pesos mexicanos más IVA. Antes de firmar, siempre tienes un diagnóstico gratuito de 30 minutos.</p>
+      </div>
+
+      <div class="plans">
+        <article class="plan reveal">
+          <h3>Diagnóstico</h3>
+          <div class="price">$4,900<small> MXN · único</small></div>
+          <p>Para entender dónde está la fricción antes de invertir en software.</p>
+          <ul>
+            <li>Mapa de hasta 3 procesos</li>
+            <li>Medición de tiempos y costos</li>
+            <li>Plan de automatización priorizado</li>
+          </ul>
+          <a href="#contacto" class="btn btn-ghost">Contratar diagnóstico</a>
+        </article>
+
+        <article class="plan featured reveal">
+          <span class="plan-tag">MÁS ELEGIDO · EJEMPLO</span>
+          <h3>Automatización</h3>
+          <div class="price">$24,500<small> MXN · proyecto</small></div>
+          <p>Para equipos que quieren dejar de hacer tareas repetitivas esta misma quincena.</p>
+          <ul>
+            <li>Hasta 5 flujos automatizados</li>
+            <li>Integración con 3 herramientas</li>
+            <li>Un mes de soporte incluido</li>
+          </ul>
+          <a href="#contacto" class="btn btn-primary">Iniciar proyecto →</a>
+        </article>
+
+        <article class="plan reveal">
+          <h3>Acompañamiento</h3>
+          <div class="price">$6,200<small> MXN · mensual</small></div>
+          <p>Un socio operativo que mantiene, mejora y expande tus automatizaciones.</p>
+          <ul>
+            <li>Monitoreo y reparación de flujos</li>
+            <li>Dos mejoras mensuales</li>
+            <li>Reporte ejecutivo cada mes</li>
+          </ul>
+          <a href="#contacto" class="btn btn-ghost">Hablar con Mateo</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="padding-top:0">
+    <div class="wrap faq-grid">
+      <div class="reveal">
+        <h2>Lo que más<br>me preguntan.</h2>
+        <p>¿Tu pregunta no está aquí? Escríbeme directo y te respondo en menos de 24 horas hábiles.</p>
+      </div>
+      <div class="reveal">
+        <details>
+          <summary>¿Necesito saber programar?</summary>
+          <p>No. Tú aportas el conocimiento de tu negocio y yo me encargo de la parte técnica. Tu equipo solo necesita validar los resultados y usar las nuevas herramientas.</p>
+        </details>
+        <details>
+          <summary>¿Qué herramientas puedes conectar?</summary>
+          <p>Trabajo con las más comunes: hojas de cálculo, CRMs, correo, WhatsApp Business, facturación electrónica, Shopify, Notion y bases de datos. Si usas algo distinto, lo evaluamos en el diagnóstico.</p>
+        </details>
+        <details>
+          <summary>¿Qué pasa si una automatización falla?</summary>
+          <p>Todas las automatizaciones tienen alertas. Si algo se detiene, lo recibo de inmediato y lo corrijo. En el plan de acompañamiento, el tiempo de respuesta es de cuatro horas hábiles.</p>
+        </details>
+        <details>
+          <summary>¿Mis datos están seguros?</summary>
+          <p>Trabajo con accesos de mínimo privilegio, cifrado en tránsito y tus propias cuentas. Firmamos un acuerdo de confidencialidad antes de comenzar y no guardo tus credenciales en texto plano.</p>
+        </details>
+        <details>
+          <summary>¿Cuánto tarda ver resultados?</summary>
+          <p>La primera automatización suele estar en producción en cuatro semanas. Muchos clientes notan el cambio en la primera quincena de uso.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div>
+          <h2>Agenda tu diagnóstico gratuito.</h2>
+          <p class="lead">30 minutos para revisar uno de tus procesos. Sales con una lista de mejoras priorizadas, tengas o no un proyecto con nosotros.</p>
+          <div class="contact-direct">
+            <a href="mailto:hola@trayecto.demo">hola@trayecto.demo</a>
+            <a href="tel:+525500000000">+52 55 0000 0000</a>
+            <span>Lunes a viernes · 9:00 a 18:00 (CDMX)</span>
+          </div>
+        </div>
+
+        <form id="form" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" placeholder="Tu nombre completo" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" placeholder="tu@empresa.com" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="empresa">Empresa</label>
+            <input id="empresa" name="empresa" type="text" placeholder="Nombre de tu empresa" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="proceso">Proceso a revisar</label>
+            <select id="proceso" name="proceso">
+              <option value="">Selecciona una opción</option>
+              <option>Ventas y seguimiento a clientes</option>
+              <option>Facturación y cobranza</option>
+              <option>Inventario y pedidos</option>
+              <option>Reportes y datos</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="mensaje">¿Qué te quita más tiempo?</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntame en pocas líneas qué tareas repites cada semana."></textarea>
+          </div>
+          <button type="submit" class="btn">Solicitar diagnóstico →</button>
+          <p class="form-ok" id="form-ok" role="status" aria-live="polite"></p>
+          <p class="form-foot">Formulario de demostración: no envía datos. Conecta tu propio backend o servicio de formularios.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a href="#inicio" class="logo" style="margin-bottom:0.8rem">
+          <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true">
+            <circle cx="8" cy="8" r="5" fill="#ff5b3a"/>
+            <circle cx="26" cy="26" r="5" fill="#3d7bff"/>
+            <path d="M8 13 V21 Q8 26 13 26 H21" fill="none" stroke="#eef1f4" stroke-width="3.5" stroke-linecap="round"/>
+          </svg>
+          Trayecto
+        </a>
+        <p>Consultoría en automatización de procesos para pequeñas y medianas empresas en México.</p>
+      </div>
+      <div>
+        <h4>Servicios</h4>
+        <a href="#servicios">Diagnóstico</a>
+        <a href="#servicios">Automatización</a>
+        <a href="#servicios">Integraciones</a>
+        <a href="#servicios">Acompañamiento</a>
+      </div>
+      <div>
+        <h4>Empresa</h4>
+        <a href="#resultados">Resultados</a>
+        <a href="#precios">Planes</a>
+        <a href="#faq">Preguntas</a>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="mailto:hola@trayecto.demo">hola@trayecto.demo</a>
+        <a href="#contacto">Agendar llamada</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Trayecto. Todos los derechos reservados.</span>
+      <span>Demo · Nombre, datos y cifras ilustrativos</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .case').forEach(el => observer.observe(el));
+
+  const form = document.getElementById('form');
+  const ok = document.getElementById('form-ok');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = form.nombre.value.trim();
+    const correo = form.correo.value.trim();
+    if (!nombre || !/^\S+@\S+\.\S+$/.test(correo)) {
+      ok.textContent = 'Revisa tu nombre y correo para continuar.';
+      return;
+    }
+    ok.textContent = 'Gracias, ' + nombre.split(' ')[0] + '. Te escribo en menos de 24 horas hábiles.';
+    form.reset();
+  });
+</script>
+</body>
+</html>
